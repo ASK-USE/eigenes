@@ -1,0 +1,8 @@
+{
+    "extensions": {
+      "txt": "TextFiles",
+      "pdf": "PDFs",
+      "docx": "WordDocs"
+    },
+    "default": "OtherFiles"
+  }
