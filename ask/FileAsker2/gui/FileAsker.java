@@ -11,8 +11,60 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
-public class extendsApplication{ //FileAsker*/ {
+import org.json.JSONObject;
+
+public class FileAsker extends Application {
+    @Override
+    public void start(Stage primaryStage) {
+        // Erstelle das GridPane-Layout und füge die Elemente hinzu
+        GridPane root = new GridPane();
+        root.setAlignment(Pos.CENTER);
+        root.setHgap(10);
+        root.setVgap(10);
+        root.setPadding(new Insets(25, 25, 25, 25));
+
+        Label sourceLabel = new Label("Source folder:");
+        root.add(sourceLabel, 0, 1);
+
+        TextField sourceTextField = new TextField();
+        root.add(sourceTextField, 1, 1);
+
+        Label destinationLabel = new Label("Destination folder:");
+        root.add(destinationLabel, 0, 2);
+
+        TextField destinationTextField = new TextField();
+        root.add(destinationTextField, 1, 2);
+
+        Button moveButton = new Button("Move files");
+        root.add(moveButton, 1, 3);
+
+        // Setze die Aktion des Buttons
+        moveButton.setOnAction(event -> {
+            String sourceFolder = sourceTextField.getText();
+            String destinationFolder = destinationTextField.getText();
+
+            File folder = new File(sourceFolder);
+            File[] files = folder.listFiles();
+
+            for (File file : files) {
+                // Implementation der Dateiverschiebung
+            }
+        });
+
+        // Erstelle die Scene und zeige das Fenster an
+        Scene scene = new Scene(root, 400, 300);
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("File Asker");
+        primaryStage.show();
+    }
+
 //     package ask.ask1.test;
 
 // import java.io.File;
