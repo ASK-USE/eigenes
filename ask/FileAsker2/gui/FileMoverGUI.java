@@ -1,4 +1,4 @@
-package gui;
+
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -145,7 +145,11 @@ public class FileMoverGUI extends JFrame implements ActionListener {
                 }
             }
             statusValueLabel.setText("Finished moving files.");
-    }       }}
+    }       }
+
+    private String getFileExtension(File file) {
+        return null;
+    }}
         
        
            
