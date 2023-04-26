@@ -15,7 +15,7 @@ public class ConfigReader {
         }
     
         private static JSONObject readConfig(String path) {
-            try (FileAsker reader = new FileAsker(path)) {
+            try (FileReader reader = new FileReader(path)) {
                 StringBuilder builder = new StringBuilder();
                 int character;
                 while ((character = reader.read()) != -1) {
